@@ -1,0 +1,23 @@
+create TABLE Viewing_t (
+    
+    Client_Id INT NOT NULL,
+    Property_Id INT NOT NULL,
+    Viewing_ViewDate DATE,
+    Viewing_Comment VARCHAR(100),
+    
+    CONSTRAINT Viewing_FK1 FOREIGN KEY (Client_Id) REFERENCES Client_t(Client_ID),
+    CONSTRAINT Viewing_FK2 FOREIGN KEY (Property_Id) REFERENCES Property_t(Property_Id)
+);
+
+
+CREATE TABLE Registration_t (
+    
+  Client_Id INT NOT NULL,
+  Branch_Id INT NOT NULL,
+  Staff_Id INT NOT NULL,
+  Registration_DateJoined DATE,
+ 
+    CONSTRAINT Registration_FK1 FOREIGN KEY (Client_ID) REFERENCES client_t(client_id),
+    CONSTRAINT Registration_FK2 FOREIGN KEY (branch_id) REFERENCES branch_t(branch_id),
+    CONSTRAINT Registration_FK3 FOREIGN KEY (staff_id) REFERENCES staff_t(staff_id)
+);
